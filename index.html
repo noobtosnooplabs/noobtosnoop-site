@@ -466,7 +466,7 @@ let drag=null;
 const slots=$("#slots");
 $("#libCount").textContent=P.length;
 const SPAN=["w2 h2","","","w2","","h2","","w2","","","w2","w2"];
-const F=n=>`media/f/${n}.jpg`;
+const F=n=>`media/${n}.jpg`;
 const lum=h=>{const n=parseInt(h.slice(1),16),r=n>>16,g=n>>8&255,b=n&255;return(.299*r+.587*g+.114*b)/255};
 const POS={samsonite:"38% 50%",cmf:"30% 50%",fastrack:"42% 50%",littlerudi:"62% 55%",b62:"50% 40%",safari:"40% 50%",nothingear:"38% 50%",spotify:"52% 50%"};
 P.forEach((p,i)=>{
@@ -478,7 +478,7 @@ P.forEach((p,i)=>{
   const v=el.querySelector("video");v.addEventListener("playing",()=>v.classList.add("live"));
 });
 const flood=$("#flood");
-slots.addEventListener("pointerover",e=>{const t=e.target.closest(".cart");if(t&&!t.contains(e.relatedTarget)){const v=t.querySelector("video");v&&v.play().catch(()=>{});const p=P[+t.dataset.i];flood.style.backgroundImage=`url(media/f/${p.hero}.jpg)`;flood.classList.add("on")}});
+slots.addEventListener("pointerover",e=>{const t=e.target.closest(".cart");if(t&&!t.contains(e.relatedTarget)){const v=t.querySelector("video");v&&v.play().catch(()=>{});const p=P[+t.dataset.i];flood.style.backgroundImage=`url(media/${p.hero}.jpg)`;flood.classList.add("on")}});
 slots.addEventListener("pointerout",e=>{const t=e.target.closest(".cart");if(t&&!t.contains(e.relatedTarget)){const v=t.querySelector("video");v&&v.pause();t.querySelector(".card").style.transform="";flood.classList.remove("on")}});
 slots.addEventListener("pointermove",e=>{if(drag||e.pointerType==="touch")return;const t=e.target.closest(".cart");if(!t)return;const r=t.getBoundingClientRect(),px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5;t.querySelector(".card").style.transform=`translate(${px*8}px,${py*8-6}px)`});
 
@@ -562,12 +562,12 @@ function fillInfo(p,i){
   $("#uMeta").textContent=`Cartridge ${pad(i+1)} / ${pad(P.length)}`;
   $("#wipCount").textContent=p.wips.length;
   $("#peek").classList.remove("on");
-  $("#strip").innerHTML=p.wips.map((w,k)=>`<button class="wip" type="button" data-k="${k}" aria-pressed="false" style="animation-delay:${k*90}ms"><i style="background-image:url(media/f/${w[0]}.jpg)"></i><span><b>${w[1]==="Frame"?"FRAME":"WIP"} ${pad(k+1)}</b> · ${w[1]==="Frame"?"from the film":w[1]}</span></button>`).join("");
+  $("#strip").innerHTML=p.wips.map((w,k)=>`<button class="wip" type="button" data-k="${k}" aria-pressed="false" style="animation-delay:${k*90}ms"><i style="background-image:url(media/${w[0]}.jpg)"></i><span><b>${w[1]==="Frame"?"FRAME":"WIP"} ${pad(k+1)}</b> · ${w[1]==="Frame"?"from the film":w[1]}</span></button>`).join("");
 }
 $("#strip").addEventListener("click",e=>{const b=e.target.closest(".wip");if(!b)return;const p=P[current],w=p.wips[+b.dataset.k],pk=$("#peek"),on=b.getAttribute("aria-pressed")==="true";
   document.querySelectorAll(".wip").forEach(x=>x.setAttribute("aria-pressed","false"));
   if(on){pk.classList.remove("on");vid.play().catch(()=>{});return}
-  b.setAttribute("aria-pressed","true");pk.style.backgroundImage=`url(media/f/${w[0]}.jpg)`;pk.querySelector("span").textContent=`${w[1]==="Frame"?"Frame":"WIP"} ${pad(+b.dataset.k+1)} · ${w[1]}`;pk.classList.add("on");vid.pause()});
+  b.setAttribute("aria-pressed","true");pk.style.backgroundImage=`url(media/${w[0]}.jpg)`;pk.querySelector("span").textContent=`${w[1]==="Frame"?"Frame":"WIP"} ${pad(+b.dataset.k+1)} · ${w[1]}`;pk.classList.add("on");vid.pause()});
 $("#peek").addEventListener("click",()=>{$("#peek").classList.remove("on");document.querySelectorAll(".wip").forEach(x=>x.setAttribute("aria-pressed","false"));vid.play().catch(()=>{})});
 $("#prev").onclick=()=>insert((current+P.length-1)%P.length);
 $("#next").onclick=()=>insert((current+1)%P.length);
@@ -608,8 +608,6 @@ document.querySelectorAll(".copy").forEach(b=>b.onclick=()=>{const el=document.g
     for(const d of dots){const a=Math.max(0,Math.sin(t*.7+d.p))*.22;if(a<.02)continue;x.fillStyle=`rgba(143,170,255,${a})`;const px=Math.round(d.x*W/G)*G+G/2-ox,py=Math.round(d.y*H/G)*G+G/2;x.fillRect(px-d.s/2,py-d.s/2,d.s,d.s);if(d.s===4&&a>.15){x.strokeStyle=`rgba(255,255,255,${a*.5})`;x.strokeRect(px-9.5,py-9.5,19,19)}}
     // vignette
     const v=x.createRadialGradient(W/2,H/2,Math.min(W,H)*.3,W/2,H/2,Math.max(W,H)*.75);v.addColorStop(0,"rgba(0,0,0,0)");v.addColorStop(1,"rgba(0,0,0,.55)");x.fillStyle=v;x.fillRect(0,0,W,H);
-    // grain
-    x.fillStyle=grain[gi++%3];x.fillRect(0,0,W,H);
     if(!reduce)requestAnimationFrame(frame);
   }
   requestAnimationFrame(frame);
