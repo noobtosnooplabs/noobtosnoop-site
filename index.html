@@ -592,7 +592,10 @@ const $=s=>document.querySelector(s);
 const media=id=>({v:`media/${id}.mp4`,p:`media/${id}.jpg`});
 const pad=n=>String(n).padStart(2,"0");
 const views={bench:$("#bench"),render:$("#render"),all:$("#all"),studio:$("#studio")};
-function show(v){for(const k in views)views[k].classList.toggle("on",k===v);if(typeof dockState==="function"&&typeof gpuVisible!=="undefined")setTimeout(dockState,0);$("#navWork").setAttribute("aria-current",v==="bench");$("#navAll").setAttribute("aria-current",v==="all");$("#navStudio").setAttribute("aria-current",v==="studio");window.scrollTo({top:0})}
+function show(v){for(const k in views)views[k].classList.toggle("on",k===v);if(typeof dockState==="function"&&typeof gpuVisible!=="undefined")setTimeout(dockState,0);$("#navWork").setAttribute("aria-current",v==="bench");$("#navAll").setAttribute("aria-current",v==="all");$("#navStudio").setAttribute("aria-current",v==="studio");window.scrollTo({top:0});
+  if(!routing){const h=v==="render"&&current!=null?"#/p/"+P[current].id:{bench:location.pathname,all:"#/projects",studio:"#/studio"}[v];
+    if(h&&(location.pathname+location.hash)!==(h.startsWith("#")?location.pathname+h:h))history.pushState(null,"",h)}}
+let routing=false;
 
 /* ---- GPU fans: minimal voxel build ---- */
 (function(){
@@ -924,7 +927,14 @@ document.querySelectorAll(".copy").forEach(b=>b.onclick=()=>{const el=document.g
   $("#stCopy").onclick=async()=>{try{await navigator.clipboard.writeText(TO);$("#stCopy").textContent="Copied"}catch(e){$("#stCopy").textContent=TO}setTimeout(()=>$("#stCopy").textContent="Copy",1800)};
   $("#navStart").onclick=()=>$("#start").scrollIntoView({behavior:"smooth"});
 })();
-show("bench");
+/* ---- history: Back/Forward move between views ---- */
+function applyRoute(){routing=true;try{const h=location.hash,m=h.match(/^#\/p\/(\w+)/);
+  if(m){const i=P.findIndex(p=>p.id===m[1]);if(i>=0){stop();insert(i);return}}
+  if(h==="#/projects"){stop();show("all")}else if(h==="#/studio"){stop();show("studio")}
+  else if(views.render.classList.contains("on")||current!=null)eject();else show("bench")}finally{routing=false}}
+addEventListener("popstate",applyRoute);
+applyRoute();
+
 </script>
 
 </body>
