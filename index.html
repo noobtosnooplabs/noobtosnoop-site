@@ -326,6 +326,40 @@ dt{color:var(--mute)} dd{margin:0;font-variant-numeric:tabular-nums;min-width:0;
 .rbox .wip.big{grid-column:span 2;grid-row:span 2}
 .rbox .wip.big i{aspect-ratio:auto;flex:1;min-height:0}
 @media (max-width:900px){.rbox .wip.big{grid-row:auto}.rbox .wip.big i{aspect-ratio:16/9;flex:none}.rbox .info{grid-template-columns:1fr}.rbox .info>dl,.rbox .info>.pn{grid-column:1;grid-row:auto}.rbox .strip{grid-template-columns:repeat(2,minmax(0,1fr))}.vp-top{display:none}}
+
+/* ===== SHOWREEL ===== */
+.reel{max-width:1180px;margin:56px auto 0;border-top:1px solid var(--line);padding-top:26px}
+.reel-h{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+.reel-h h2{font-family:var(--f-display);font-stretch:125%;font-weight:300;font-size:clamp(30px,4.4vw,56px);line-height:.95;letter-spacing:-.02em;margin:12px 0 0}.reel-h h2 em{font-style:normal;font-weight:700}
+.reel-f{position:relative;aspect-ratio:21/9;background:#000;overflow:hidden;box-shadow:0 0 0 1px var(--line);cursor:pointer}
+.reel-f video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.reel-f:hover video{transform:scale(1.015)}
+.reel-tl{position:absolute;left:16px;right:16px;top:14px;display:flex;justify-content:space-between;color:rgba(236,235,231,.8)!important;text-shadow:0 1px 6px #000;pointer-events:none}
+.reel-play{position:absolute;right:22px;bottom:20px;background:var(--ink);color:#0b0b0d;font:500 12px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;padding:15px 18px;transition:transform .25s,background .2s}
+.reel-f:hover .reel-play{background:#fff;transform:translateY(-2px)}
+.reel-sc{height:2px;background:var(--line);margin-top:10px}.reel-sc i{display:block;height:100%;width:0;background:var(--ink)}
+.reel-ch{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:6px;margin-top:10px}
+.reel-ch button{text-align:left;font:500 9.5px/1.2 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--dim);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:color .2s}
+.reel-ch button:hover,.reel-ch button.on{color:var(--ink)}
+.cine{position:fixed;inset:0;z-index:200;background:#050506;display:flex;flex-direction:column;padding:clamp(12px,2vw,22px) clamp(12px,3vw,40px) clamp(14px,2vw,26px)}
+.cine[hidden]{display:none}
+.cine-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:12px}
+.cine-btn{font:500 11px/1 var(--f-mono);letter-spacing:.1em;color:var(--ink);border:1px solid rgba(236,235,231,.4);padding:9px 12px;text-transform:uppercase}
+.cine-btn:hover{background:var(--ink);color:#0b0b0d}
+.cine-v{flex:1;min-height:0;position:relative;background:#000}
+.cine-v video{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.cine-v .cc{position:absolute;left:clamp(14px,2vw,24px);bottom:clamp(54px,6vw,70px);transition:opacity .4s}
+.cine-v .cc strong{display:block;font-family:var(--f-display);font-stretch:125%;font-weight:700;font-size:clamp(26px,3.4vw,44px);margin:6px 0 12px;line-height:1;text-shadow:0 2px 20px rgba(0,0,0,.6)}
+.cine-v .cc button{font:500 11px/1 var(--f-mono);letter-spacing:.1em;border:1px solid rgba(236,235,231,.5);padding:8px 10px;color:var(--ink);background:rgba(0,0,0,.3)}
+.cine-v .cc button:hover{background:var(--ink);color:#0b0b0d}
+.chap{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:4px;margin-top:14px}
+.chap button{text-align:left;display:block;min-width:0}
+.chap i{display:block;aspect-ratio:16/9;background:center/cover;opacity:.45;transition:opacity .2s}
+.chap button:hover i,.chap .on i{opacity:1}.chap .on i{box-shadow:0 0 0 1px #fff}
+.chap u{display:block;height:2px;background:var(--line);margin-top:6px;text-decoration:none;position:relative;overflow:hidden}
+.chap u b{position:absolute;inset:0 auto 0 0;width:0;background:#fff}
+.chap span{display:block;font:500 9.5px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-top:7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.chap .on span{color:var(--ink)}
+@media (max-width:820px){.reel-f{aspect-ratio:16/9}.reel-ch{display:none}.chap{grid-template-columns:repeat(6,minmax(0,1fr))}.chap span{display:none}.reel-play{right:12px;bottom:12px;padding:12px 14px}}
 /* ===== BRANDS ===== */
 .brands{max-width:1180px;margin:72px auto 0;border-top:1px solid var(--line)}
 .brands-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-block:22px 18px;flex-wrap:wrap}
@@ -491,6 +525,23 @@ dt{color:var(--mute)} dd{margin:0;font-variant-numeric:tabular-nums;min-width:0;
     <div class="slots" id="slots"></div>
   </div>
   <div class="bench-foot"><span>Every frame on this site was computer generated.</span><button class="linkish" id="browseAll" type="button">See all <span id="allN"></span> projects →</button></div>
+  <section class="reel" id="reel" aria-label="Showreel">
+    <div class="reel-h"><div><span class="mono">Showreel · 2022–2026</span><h2>Every frame,<br><em>computer generated.</em></h2></div><span class="mono" id="reelMeta"></span></div>
+    <div class="reel-f" id="reelF">
+      <video id="reelV" muted playsinline loop preload="metadata" poster="media/showreel.jpg" src="media/showreel.mp4"></video>
+      <div class="reel-tl mono"><span id="reelNow">Playing muted</span><span id="reelT">00:00</span></div>
+      <button class="reel-play" id="reelPlay" type="button">▶ Watch the reel</button>
+    </div>
+    <div class="reel-sc"><i id="reelBar"></i></div>
+    <div class="reel-ch" id="reelCh"></div>
+  </section>
+  <div class="cine" id="cine" role="dialog" aria-modal="true" aria-label="Showreel" hidden>
+    <div class="cine-top"><span class="mono" id="cineT">Showreel</span><span class="cine-act"><button class="cine-btn" id="cineClose" type="button">✕ Close</button></span></div>
+    <div class="cine-v"><video id="cineV" playsinline preload="metadata" poster="media/showreel.jpg" src="media/showreel.mp4"></video>
+      <div class="cc"><span class="mono" id="cineK"></span><strong id="cineN"></strong><button type="button" id="cineOpen">Open project →</button></div></div>
+    <div class="chap" id="cineCh"></div>
+  </div>
+
 </section>
 
 <!-- RENDER + PLAYBACK -->
@@ -961,6 +1012,34 @@ document.querySelectorAll(".copy").forEach(b=>b.onclick=()=>{const el=document.g
     $("#stNote").textContent=`If nothing opened, email ${TO}`});
   $("#stCopy").onclick=async()=>{try{await navigator.clipboard.writeText(TO);$("#stCopy").textContent="Copied"}catch(e){$("#stCopy").textContent=TO}setTimeout(()=>$("#stCopy").textContent="Copy",1800)};
   $("#navStart").onclick=()=>$("#start").scrollIntoView({behavior:"smooth"});
+})();
+
+/* ---- showreel: muted preview after the NAS + cinema with chapters ---- */
+(function(){
+  const SEG=3,IDS=["samsonite","nothing2a","karnataka","platinum","ultrahuman","twoam","freeze","phonepe","cmf","littlerudi","hcl","spotify"];
+  const CH=IDS.map((id,k)=>{const i=P.findIndex(p=>p.id===id);return{i,p:P[i],t:k*SEG}}).filter(c=>c.i>=0);
+  const v=$("#reelV"),cv=$("#cineV"),cine=$("#cine"),fmt=t=>`${String(Math.floor(t/60)).padStart(2,"0")}:${String(Math.floor(t%60)).padStart(2,"0")}`;
+  const at=t=>{let k=0;for(let j=0;j<CH.length;j++)if(t>=CH[j].t)k=j;return k};
+  const thumb=p=>{const h=typeof HOMEHERO!=="undefined"&&HOMEHERO[p.id]?HOMEHERO[p.id]:p.hero;return F(h)};
+  $("#reelMeta").textContent=`${CH.length} projects · ${fmt(CH.length*SEG)}`;
+  $("#reelCh").innerHTML=CH.map((c,k)=>`<button type="button" data-k="${k}">${pad(k+1)} ${c.p.c}</button>`).join("");
+  $("#cineCh").innerHTML=CH.map((c,k)=>`<button type="button" data-k="${k}"><i style="background-image:url(${thumb(c.p)})"></i><u><b></b></u><span>${pad(k+1)} · ${c.p.c}</span></button>`).join("");
+  let last=-1;
+  v.addEventListener("timeupdate",()=>{const t=v.currentTime,d=v.duration||1,k=at(t);$("#reelBar").style.width=(t/d*100)+"%";$("#reelT").textContent=`${fmt(t)} / ${fmt(d)}`;
+    if(k!==last){last=k;$("#reelNow").textContent=`Playing muted · ${CH[k].p.c} — ${CH[k].p.t}`;document.querySelectorAll("#reelCh button").forEach((b,j)=>b.classList.toggle("on",j===k))}});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&cine.hidden)v.play().catch(()=>{});else v.pause()}),{threshold:.35});io.observe(v);
+  function open(t){const k=at(t||0);$("#cineK").textContent=`Chapter ${pad(k+1)} · ${CH[k].p.c}`;$("#cineN").textContent=CH[k].p.t;cine.hidden=false;document.body.style.overflow="hidden";v.pause();cv.currentTime=t||0;cv.muted=false;cv.play().catch(()=>{cv.muted=true;cv.play().catch(()=>{})});$("#cineClose").focus()}
+  function close(){cv.pause();cine.hidden=true;document.body.style.overflow="";v.play().catch(()=>{})}
+  $("#reelF").onclick=()=>open(v.currentTime>0.5?CH[at(v.currentTime)].t:0);
+  $("#reelCh").onclick=e=>{const b=e.target.closest("button");if(b)open(CH[+b.dataset.k].t)};
+  $("#cineCh").onclick=e=>{const b=e.target.closest("button");if(b){cv.currentTime=CH[+b.dataset.k].t;cv.play().catch(()=>{})}};
+  $("#cineClose").onclick=close;addEventListener("keydown",e=>{if(e.key==="Escape"&&!cine.hidden)close()});
+  let ck=-1;
+  cv.addEventListener("timeupdate",()=>{const t=cv.currentTime,d=cv.duration||1,k=at(t);$("#cineT").textContent=`Showreel · ${fmt(t)} / ${fmt(d)}`;
+    document.querySelectorAll("#cineCh button").forEach((b,j)=>{b.classList.toggle("on",j===k);const s=CH[j].t,e=j+1<CH.length?CH[j+1].t:d;b.querySelector("b").style.width=Math.max(0,Math.min(1,(t-s)/(e-s)))*100+"%"});
+    if(k!==ck){ck=k;$("#cineK").textContent=`Chapter ${pad(k+1)} · ${CH[k].p.c}`;$("#cineN").textContent=CH[k].p.t}});
+  cv.addEventListener("ended",close);
+  $("#cineOpen").onclick=()=>{const c=CH[at(cv.currentTime)];close();v.pause();stop();insert(c.i)};
 })();
 /* ---- history: Back/Forward move between views ---- */
 function applyRoute(){routing=true;try{const h=location.hash,m=h.match(/^#\/p\/(\w+)/);
