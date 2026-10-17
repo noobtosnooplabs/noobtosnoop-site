@@ -360,6 +360,59 @@ dt{color:var(--mute)} dd{margin:0;font-variant-numeric:tabular-nums;min-width:0;
 .chap u b{position:absolute;inset:0 auto 0 0;width:0;background:#fff}
 .chap span{display:block;font:500 9.5px/1 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mute);margin-top:7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.chap .on span{color:var(--ink)}
 @media (max-width:820px){.reel-f{aspect-ratio:16/9}.reel-ch{display:none}.chap{grid-template-columns:repeat(6,minmax(0,1fr))}.chap span{display:none}.reel-play{right:12px;bottom:12px;padding:12px 14px}}
+
+/* ===== CATEGORIES ===== */
+.vol-chips{display:flex;gap:6px;flex-wrap:wrap;margin:0 0 12px}
+.vol-chips button{font:500 10.5px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line-2);padding:8px 11px;color:var(--mute);transition:all .2s}
+.vol-chips button:hover{color:var(--ink)}
+.vol-chips button[aria-pressed="true"]{background:var(--ink);color:#0b0b0d;border-color:var(--ink)}
+.vol-h{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 6px 4px;font:500 10px/1 var(--f-mono);letter-spacing:.14em;text-transform:uppercase;color:#8a8b90;border-top:1px solid #1d1e22}
+.vol-h:first-child{border-top:0;padding-top:4px}
+.vol-h b{color:var(--ink);font-weight:500}
+.spatial-bay{grid-column:1/-1;height:76px!important}
+.sled-sp{grid-template-columns:120px minmax(0,1fr) auto auto auto!important;background:linear-gradient(90deg,rgba(160,130,255,.16),transparent 55%),linear-gradient(180deg,#34353b,#202126 60%,#191a1e)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 0 0 1px rgba(180,160,255,.4)!important}
+.sled-sp .stripe{background-size:cover!important;background-position:center!important;background-repeat:no-repeat!important;border-radius:2px 0 0 2px}
+.sled-sp .lab b{font-size:11.5px}
+.vp-badge{font:500 9.5px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;background:#cdbdff;color:#0b0b0d;padding:6px 8px}
+@media (max-width:560px){.sled-sp{grid-template-columns:70px minmax(0,1fr) auto auto!important}.sled-sp .vp-badge{display:none}}
+.cat-tabs{display:flex;border-block:1px solid var(--line);margin:0 auto 26px;max-width:1180px;overflow-x:auto;scrollbar-width:none}
+.cat-tabs button{padding:15px 20px;font:500 11px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);border-right:1px solid var(--line);white-space:nowrap;transition:color .2s,background .2s}
+.cat-tabs button:hover{color:var(--ink)}
+.cat-tabs button b{color:var(--dim);font-weight:500;margin-left:8px}
+.cat-tabs button[aria-pressed="true"]{color:#0b0b0d;background:var(--ink)}.cat-tabs button[aria-pressed="true"] b{color:#0b0b0d}
+.cat-intro{max-width:1180px;margin:0 auto 24px;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.cat-intro h3{margin:0;font-family:var(--f-display);font-stretch:125%;font-weight:300;font-size:clamp(28px,3.4vw,42px);line-height:1}.cat-intro h3 em{font-style:normal;font-weight:700}
+.cat-intro p{margin:0;color:var(--mute);max-width:46ch;font-size:14px}
+/* ===== SPATIAL CASE STUDY ===== */
+#spatial{padding-block:0 40px}
+.sp-hero{position:relative;max-width:1180px;margin:clamp(12px,2vw,24px) auto 0;height:clamp(380px,48vw,620px);background:center/cover;overflow:hidden;perspective:1400px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 1px var(--line)}
+.sp-hero:before{content:"";position:absolute;inset:0;background:radial-gradient(70% 70% at 50% 45%,rgba(7,8,11,.15),rgba(7,8,11,.75));backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.sp-win{position:relative;border-radius:clamp(18px,2.4vw,32px);overflow:hidden;box-shadow:0 40px 80px -20px rgba(0,0,0,.75),inset 0 0 0 1px rgba(255,255,255,.25);background:rgba(255,255,255,.1);animation:spFloat 7s ease-in-out infinite}
+.sp-win img{display:block;width:100%}
+.sp-main{width:min(58%,640px);z-index:2}
+.sp-l{position:absolute!important;left:6%;top:16%;width:22%;transform:rotateY(22deg);animation-delay:-2s;z-index:1}
+.sp-r{position:absolute!important;right:7%;top:24%;width:16%;transform:rotateY(-22deg);animation-delay:-4s;background:#fff;z-index:1}
+.sp-grab{position:absolute;left:50%;bottom:12%;transform:translateX(-50%);width:80px;height:6px;border-radius:3px;background:rgba(255,255,255,.6);z-index:2}
+@keyframes spFloat{50%{translate:0 -8px}}
+.sp-top{position:absolute;left:18px;right:18px;top:16px;display:flex;justify-content:space-between;z-index:3;color:rgba(236,235,231,.85)!important}
+.sp-body{max-width:1180px;margin:0 auto}
+.sp-body h1{font-family:var(--f-display);font-stretch:125%;font-weight:300;font-size:clamp(40px,6.4vw,82px);line-height:.92;letter-spacing:-.02em;margin:18px 0 18px}.sp-body h1 em{font-style:normal;font-weight:700}
+.sp-head{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:clamp(24px,5vw,80px);align-items:end;padding-top:34px}
+.sp-head p{margin:0;color:#c9c7c1;font-size:16px;max-width:48ch}
+.sp-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-block:1px solid var(--line);margin:30px 0 34px}
+.sp-meta div{padding:16px 16px 16px 0;border-right:1px solid var(--line)}.sp-meta div+div{padding-left:16px}.sp-meta div:last-child{border-right:0}
+.sp-meta b{display:block;color:var(--ink);font:400 15px/1.3 var(--f-body);margin-top:8px}
+.sp-film{position:relative;aspect-ratio:16/9;background:#000;box-shadow:0 0 0 1px var(--line)}.sp-film video{width:100%;height:100%;display:block;object-fit:contain}
+.sp-sec{display:flex;justify-content:space-between;margin:40px 0 14px;border-top:1px solid var(--line);padding-top:18px}
+.sp-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.sp-grid figure{margin:0}.sp-grid .w2{grid-column:span 2}
+.sp-grid .im{aspect-ratio:16/10;background:#0b0b0e center/cover no-repeat;box-shadow:0 0 0 1px var(--line)}.sp-grid .w2 .im{aspect-ratio:auto;height:calc(100% - 22px)}
+.sp-grid .im.ct{background-size:contain}
+.sp-grid figcaption{font:500 10px/1 var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-top:9px}
+.sp-cta{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:40px;padding-top:24px}
+.sp-cta h3{margin:0;font-family:var(--f-display);font-stretch:125%;font-weight:300;font-size:clamp(24px,3vw,36px)}.sp-cta h3 em{font-style:normal;font-weight:700}
+@media (max-width:820px){.sp-head{grid-template-columns:1fr}.sp-meta{grid-template-columns:1fr 1fr}.sp-meta div:nth-child(2){border-right:0}.sp-grid{grid-template-columns:1fr 1fr}.sp-l,.sp-r{display:none}.sp-main{width:84%}}
+@media (prefers-reduced-motion:reduce){.sp-win{animation:none}}
 /* ===== BRANDS ===== */
 .brands{max-width:1180px;margin:72px auto 0;border-top:1px solid var(--line)}
 .brands-head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-block:22px 18px;flex-wrap:wrap}
@@ -444,6 +497,7 @@ dt{color:var(--mute)} dd{margin:0;font-variant-numeric:tabular-nums;min-width:0;
   <nav>
     <button id="navWork" type="button">Home</button>
     <button id="navAll" type="button">Projects</button>
+    <button id="navSpatial" type="button">Vision Pro</button>
     <button id="navStudio" type="button">Studio</button>
     <button id="navStart" class="nav-cta" type="button">Start a project</button>
     <button id="snd" type="button" aria-pressed="false">Sound off</button>
@@ -582,6 +636,9 @@ dt{color:var(--mute)} dd{margin:0;font-variant-numeric:tabular-nums;min-width:0;
   <div class="slots allg" id="allGrid"></div>
 </section>
 
+<!-- SPATIAL CASE STUDY -->
+<section class="view" id="spatial" aria-label="Apple Vision Pro case study"></section>
+
 <!-- STUDIO -->
 <section class="view" id="studio" aria-label="Studio">
   <div class="panel studio">
@@ -659,7 +716,7 @@ const P=[
  {id:"cmf",t:"Global Launch Film",c:"CMF by Nothing",y:"",tags:["Product CGI","Launch film"],scene:"cmf_global_main.c4d",poly:"4.8M",col:"#e2562a",hero:"cmf_4",sup:["cmf_1", "cmf_6"],wips:[["cmf_0", "Frame"], ["cmf_3", "Frame"], ["cmf_7", "Frame"]]},
  {id:"ultrahuman",t:"Rare",c:"Ultrahuman",y:"",tags:["Jewellery CGI","Look dev"],scene:"uh_rare_r3.c4d",poly:"2.2M",col:"#b8875a",hero:"ultrahuman_5",sup:["ultrahuman_5", "wip_ultrahuman_6"],wips:[["wip_ultrahuman_4", "Storyboard"], ["wip_ultrahuman_5", "Storyboard"], ["wip_ultrahuman_6", "Storyboard"], ["wip_ultrahuman_1", "Look dev"], ["wip_ultrahuman_0", "Sand sim"]]},
  {id:"karnataka",t:"Cultural Film",c:"Invest Karnataka",y:"2022",tags:["Characters","Environments","Cloth sim"],scene:"ik_cultec_sc12.c4d",poly:"14.3M",col:"#5b2a20",hero:"karnataka_1",sup:["karnataka_5", "wip_karnataka_4"],wips:[["wip_karnataka_4", "Sculpt"], ["wip_karnataka_12", "Draw-over"], ["wip_karnataka_14", "Mocap plate"], ["wip_karnataka_17", "Viewport"], ["wip_karnataka_16", "Blocking"], ["wip_karnataka_9", "Look dev"]]},
- {id:"littlerudi",t:"Little Rudi",c:"Apple Vision Pro",y:"",tags:["Spatial","Character"],scene:"little_rudi_avp.usdz",poly:"1.8M",col:"#6e2a20",hero:"littlerudi_4",sup:["littlerudi_3", "littlerudi_0"],wips:[["littlerudi_1", "Frame"], ["littlerudi_5", "Frame"], ["littlerudi_6", "Frame"]]},
+ {id:"littlerudi",t:"The Tale of Little Rudi",c:"Lapland UK",y:"2024",tags:["Spatial app","visionOS","Character"],scene:"little_rudi_avp.usdz",poly:"1.8M",col:"#6e2a20",hero:"littlerudi_4",sup:["littlerudi_3", "littlerudi_0"],wips:[["littlerudi_1", "Frame"], ["littlerudi_5", "Frame"], ["littlerudi_6", "Frame"]]},
  {id:"spotify",t:"Bhaskar Bose Trailer",c:"Spotify",y:"",tags:["Trailer","3D"],scene:"spotify_bhaskar_bose.c4d",poly:"5.0M",col:"#b3121f",hero:"spotify_5",sup:["spotify_4", "spotify_2"],wips:[["spotify_1", "Frame"], ["spotify_3", "Frame"], ["spotify_6", "Frame"]]},
  {id:"fastrack",t:"Perfumes",c:"Fastrack",y:"",tags:["Product CGI"],scene:"fastrack_perfume.c4d",poly:"2.9M",col:"#e1bfae",hero:"fastrack_6",sup:["fastrack_0", "fastrack_3"],wips:[["fastrack_1", "Frame"], ["fastrack_4", "Frame"], ["fastrack_5", "Frame"]]},
  {id:"b62",t:"Logo Ident",c:"B62",y:"",tags:["Ident","4K"],scene:"b62_ident.c4d",poly:"0.9M",col:"#2f5d6b",hero:"b62_2",sup:["b62_3", "wip_b62_2"],wips:[["b62main_0", "Blockout"], ["b62hr_1", "Layout"], ["wip_b62_0", "Character"], ["wip_b62_1", "Character"], ["wip_b62_3", "Turnaround"]]},
@@ -673,9 +730,9 @@ const P=[
 const $=s=>document.querySelector(s);
 const media=id=>({v:`media/${id}.mp4`,p:`media/${id}.jpg`});
 const pad=n=>String(n).padStart(2,"0");
-const views={bench:$("#bench"),render:$("#render"),all:$("#all"),studio:$("#studio")};
-function show(v){for(const k in views)views[k].classList.toggle("on",k===v);if(typeof dockState==="function"&&typeof gpuVisible!=="undefined")setTimeout(dockState,0);$("#navWork").setAttribute("aria-current",v==="bench");$("#navAll").setAttribute("aria-current",v==="all");$("#navStudio").setAttribute("aria-current",v==="studio");window.scrollTo({top:0});
-  if(!routing){const h=v==="render"&&current!=null?"#/p/"+P[current].id:{bench:location.pathname,all:"#/projects",studio:"#/studio"}[v];
+const views={bench:$("#bench"),render:$("#render"),all:$("#all"),studio:$("#studio"),spatial:$("#spatial")};
+function show(v){for(const k in views)views[k].classList.toggle("on",k===v);if(typeof dockState==="function"&&typeof gpuVisible!=="undefined")setTimeout(dockState,0);$("#navWork").setAttribute("aria-current",v==="bench");$("#navAll").setAttribute("aria-current",v==="all");$("#navStudio").setAttribute("aria-current",v==="studio");$("#navSpatial")&&$("#navSpatial").setAttribute("aria-current",v==="spatial");window.scrollTo({top:0});
+  if(!routing){const h=v==="render"&&current!=null?"#/p/"+P[current].id:{bench:location.pathname,all:"#/projects"+(typeof curCat!=="undefined"&&curCat!=="all"?"/"+curCat:""),studio:"#/studio",spatial:"#/vision-pro"}[v];
     if(h&&(location.pathname+location.hash)!==(h.startsWith("#")?location.pathname+h:h))history.pushState(null,"",h)}}
 let routing=false;
 
@@ -750,6 +807,15 @@ const slots=$("#slots");
 const SPAN=["w2 h2","","","w2","","h2","","w2","","","w2","w2"];
 const F=n=>`${n}.jpg`;
 const lum=h=>{const n=parseInt(h.slice(1),16),r=n>>16,g=n>>8&255,b=n&255;return(.299*r+.587*g+.114*b)/255};
+
+const CATS=[
+ {k:"spatial",n:"Spatial apps",l:"Spatial apps — Apple Vision Pro",d:"Immersive apps and worlds for Apple Vision Pro: 3D environments, characters, UI and interaction."},
+ {k:"product",n:"Product animation",l:"Product animation",d:"Launch films and hero CGI for phones, wearables, luggage and jewellery: look dev, simulation and full CG worlds."},
+ {k:"identity",n:"Brand & identity",l:"Brand & identity",d:"Logo idents and brand moments built in 3D."},
+ {k:"film",n:"Film",l:"Film & storytelling",d:"Narrative and cultural films, trailers and title work."},
+ {k:"fx",n:"FX & tech viz",l:"FX & tech viz",d:"Simulation, point clouds and technical visualisation."}];
+const CATOF={littlerudi:"spatial",twoam:"identity",b62:"identity",karnataka:"film",spotify:"film",hcl:"fx",cortex:"fx"};
+P.forEach(p=>p.cat=CATOF[p.id]||"product");
 const HERO=["samsonite","nothing2a","karnataka","ultrahuman","littlerudi"];
 const HOMEHERO={samsonite:"samsonite_4",nothing2a:"nothing2a_2",karnataka:"karnataka_1",ultrahuman:"ultrahuman_3",littlerudi:"littlerudi_4"};
 const LAY=[["1/12",0,"big"],["2/13",0,"big"],["1/12",0,"big"],["2/13",0,"big"],["1/12",0,"big"]];
@@ -817,6 +883,7 @@ $("#snd").onclick=()=>{soundOn=!soundOn;initAudio();if(ac&&ac.state==="suspended
 const cv=$("#cv"),ctx=cv.getContext("2d"),vid=$("#vid"),frame=$("#frame"),rbox=$("#rbox"),logEl=$("#log");
 let current=null,runId=0;vid.muted=true;
 function insert(i){
+  if(P[i].cat==="spatial"){openSpatial();return}
   current=i;const p=P[i],m=media(p.id),my=++runId;
   $("#loaded").classList.add("on");$("#loaded span").textContent=`${pad(i+1)} ${p.c}`;
   show("render");rbox.classList.remove("play");frame.classList.remove("done");
@@ -955,13 +1022,19 @@ document.querySelectorAll(".copy").forEach(b=>b.onclick=()=>{const el=document.g
   $("#nasN").textContent=P.length;$("#nasAll").onclick=()=>{stop();show("all")};
   const coarse=matchMedia("(pointer:coarse)").matches;
   if(coarse){$("#nasTip").textContent="Tap a drive to load it";$("#cueTxt").firstChild.textContent="Tap a drive to load it into the GPU "}
-  const ORDER=[...HERO,...P.map(p=>p.id).filter(id=>!HERO.includes(id))];
-  ORDER.forEach((id,k)=>{const i=P.findIndex(p=>p.id===id);if(i<0)return;const p=P[i];
-    if(k===HERO.length){const sep=document.createElement("div");sep.className="bsep";sep.innerHTML=`<span>Archive</span><span>${ORDER.length-HERO.length} drives</span>`;bays.appendChild(sep)}
-    if(k===0){const sep=document.createElement("div");sep.className="bsep";sep.style.paddingTop="4px";sep.innerHTML=`<span>Selected</span><span>${HERO.length} drives</span>`;bays.appendChild(sep)}
-    const bay=document.createElement("div");bay.className="bay";
-    bay.innerHTML=`<button class="sled" type="button" data-i="${i}" style="--tc:${p.col};--d:${(2.4+k*.9).toFixed(1)}s" aria-label="Load ${p.c}, ${p.t}"><span class="stripe"></span><span class="lab"><b>${pad(k+1)} · ${p.c}</b><em>${p.t}${p.y?" · "+p.y:""}</em></span><span class="led"></span><span class="grip"><i></i><i></i><i></i><i></i></span></button>`;
-    bays.appendChild(bay)});
+  let k=0;
+  CATS.forEach(c=>{const ids=[...HERO.filter(id=>P.find(p=>p.id===id)?.cat===c.k),...P.filter(p=>p.cat===c.k&&!HERO.includes(p.id)).map(p=>p.id)];if(!ids.length)return;
+    const vi=CATS.indexOf(c)+1,h=document.createElement("div");h.className="vol-h";h.dataset.cat=c.k;h.innerHTML=`<span><b>VOL ${pad(vi)}</b> · ${c.l}</span><span>${ids.length} drive${ids.length>1?"s":""}</span>`;bays.appendChild(h);
+    ids.forEach(id=>{const i=P.findIndex(p=>p.id===id),p=P[i];k++;
+      const bay=document.createElement("div");bay.className="bay"+(c.k==="spatial"?" spatial-bay":"");bay.dataset.cat=c.k;
+      bay.innerHTML=c.k==="spatial"
+        ?`<button class="sled sled-sp" type="button" data-i="${i}" style="--tc:${p.col};--d:${(2.4+k*.9).toFixed(1)}s" aria-label="Launch ${p.t}, Apple Vision Pro app"><span class="stripe" style="background-image:url(${F("rudi_x12")})"></span><span class="lab"><b>${pad(k)} · ${p.t}</b><em>${p.c} · visionOS app · ${p.y}</em></span><span class="vp-badge">Vision Pro</span><span class="led"></span><span class="grip"><i></i><i></i><i></i><i></i></span></button>`
+        :`<button class="sled" type="button" data-i="${i}" style="--tc:${p.col};--d:${(2.4+k*.9).toFixed(1)}s" aria-label="Load ${p.c}, ${p.t}"><span class="stripe"></span><span class="lab"><b>${pad(k)} · ${p.c}</b><em>${p.t}${p.y?" · "+p.y:""}</em></span><span class="led"></span><span class="grip"><i></i><i></i><i></i><i></i></span></button>`;
+      bays.appendChild(bay)})});
+  const chips=document.createElement("div");chips.className="vol-chips";chips.innerHTML=`<button type="button" data-cat="all" aria-pressed="true">All · ${P.length}</button>`+CATS.map(c=>`<button type="button" data-cat="${c.k}" aria-pressed="false">${c.n} · ${P.filter(p=>p.cat===c.k).length}</button>`).join("");
+  nas.insertBefore(chips,$("#bscroll"));
+  chips.onclick=e=>{const b=e.target.closest("button");if(!b)return;const c=b.dataset.cat;chips.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));
+    bays.querySelectorAll("[data-cat]").forEach(x=>x.style.display=(c==="all"||x.dataset.cat===c)?"":"none")};
   const HH=typeof HOMEHERO!=="undefined"?HOMEHERO:{};
   function showPv(sl){if(coarse)return;const p=P[+sl.dataset.i],sr=stage.getBoundingClientRect(),nr=nas.getBoundingClientRect(),r=sl.getBoundingClientRect();
     const w=Math.min(560,sr.width);pv.style.setProperty("--pw",w+"px");
@@ -1041,10 +1114,45 @@ document.querySelectorAll(".copy").forEach(b=>b.onclick=()=>{const el=document.g
   cv.addEventListener("ended",close);
   $("#cineOpen").onclick=()=>{const c=CH[at(cv.currentTime)];close();v.pause();stop();insert(c.i)};
 })();
+
+/* ---- categories on the Projects page ---- */
+let curCat="all";
+(function(){const head=document.querySelector("#all .allhead");
+  const tabs=document.createElement("div");tabs.className="cat-tabs";tabs.innerHTML=`<button type="button" data-cat="all" aria-pressed="true">All<b>${pad(P.length)}</b></button>`+CATS.map(c=>`<button type="button" data-cat="${c.k}" aria-pressed="false">${c.n}<b>${pad(P.filter(p=>p.cat===c.k).length)}</b></button>`).join("");
+  const intro=document.createElement("div");intro.className="cat-intro";intro.id="catIntro";
+  head.after(tabs);tabs.after(intro);
+  tabs.onclick=e=>{const b=e.target.closest("button");if(b)setCat(b.dataset.cat,true)};
+  window.setCat=(c,push)=>{curCat=CATS.some(x=>x.k===c)?c:"all";tabs.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.cat===curCat?"true":"false"));
+    allGrid.querySelectorAll(".cart").forEach(el=>el.style.display=(curCat==="all"||P[+el.dataset.i].cat===curCat)?"":"none");
+    const c2=CATS.find(x=>x.k===curCat);const w=c2?c2.n.split(" "):null;
+    intro.innerHTML=c2?`<h3>${w.slice(0,-1).join(" ")} <em>${w.slice(-1)}</em></h3><p>${c2.d}</p>`:"";intro.style.display=c2?"":"none";
+    if(push&&!routing){const h="#/projects"+(curCat!=="all"?"/"+curCat:"");if(location.hash!==h)history.pushState(null,"",h)}};
+  setCat("all");
+})();
+
+/* ---- Vision Pro case study ---- */
+(function(){const p=P.find(x=>x.id==="littlerudi"),m=media("littlerudi");
+  const fig=(n,cap,cls="",ct=false)=>`<figure class="${cls}"><div class="im${ct?" ct":""}" style="background-image:url(${F(n)})"></div><figcaption>${cap}</figcaption></figure>`;
+  $("#spatial").innerHTML=`<div class="sp-hero" style="background-image:url(${F("rudi_x11")})"><div class="sp-top mono"><span>NTS Labs · Spatial apps</span><span>VOL 01 · Apple Vision Pro</span></div>
+    <div class="sp-win sp-l"><img src="${F("rudi_x00")}" alt=""></div><div class="sp-win sp-main"><img src="${F("rudi_x12")}" alt="The Tale of Little Rudi title screen in Apple Vision Pro"></div><div class="sp-win sp-r"><img src="${F("rudi_x09")}" alt=""></div><span class="sp-grab"></span></div>
+  <div class="sp-body"><div class="sp-head"><div><span class="mono">Spatial app · Apple Vision Pro · ${p.y}</span><h1>The Tale of<br><em>Little Rudi</em></h1></div>
+    <p>An immersive Christmas story for Apple Vision Pro. You step into Pixie Mixie's enchanted hut and meet Rudi, a shy little reindeer who hides from the world, then help him find his courage through gentle gestures.</p></div>
+  <div class="sp-meta mono"><div>Client<b>Lapland UK</b></div><div>Platform<b>Apple Vision Pro · visionOS</b></div><div>Our role<b>3D world, character &amp; UI</b></div><div>Partner<b>Kulfi Immersive</b></div></div>
+  <div class="sp-film"><video controls playsinline preload="none" poster="${F(p.hero)}" src="${m.v}"></video></div>
+  <div class="sp-sec mono"><span>Inside the app</span><span>World · character · interface</span></div>
+  <div class="sp-grid">${fig("rudi_x11","Pixie Mixie's hut · immersive space","w2")}${fig("rudi_x10","Character look dev")}${fig("rudi_x03","Launch window UI",'',true)}
+    ${fig("rudi_x13","Title sequence · aurora")}${fig("rudi_x01","Story intro card",'',true)}${fig("rudi_x05","Gesture design",'',true)}${fig("rudi_x08","App icon",'',true)}${fig("rudi_x09","Rudi · character design",'',true)}
+    ${fig("littlerudi_4","Frame from the trailer")}${fig("littlerudi_0","Frame from the trailer")}${fig("littlerudi_3","Frame from the trailer")}</div>
+  <div class="sp-cta"><h3>Building for <em>Vision Pro?</em></h3><button class="st-btn" type="button" id="spStart">Start a project <i>→</i></button></div></div>`;
+  $("#spStart").onclick=()=>$("#start").scrollIntoView({behavior:"smooth"});
+  window.openSpatial=()=>{stop();const go=()=>{gpu.classList.remove("hot");document.querySelectorAll(".sled.out").forEach(x=>x.classList.remove("out"));show("spatial")};if(routing){go();return}gpu.classList.add("hot");setTimeout(go,650)};
+  $("#navSpatial").onclick=()=>{stop();show("spatial")};
+})();
 /* ---- history: Back/Forward move between views ---- */
 function applyRoute(){routing=true;try{const h=location.hash,m=h.match(/^#\/p\/(\w+)/);
   if(m){const i=P.findIndex(p=>p.id===m[1]);if(i>=0){stop();insert(i);return}}
-  if(h==="#/projects"){stop();show("all")}else if(h==="#/studio"){stop();show("studio")}
+  const pm=h.match(/^#\/projects(?:\/(\w+))?$/);
+  if(pm){stop();setCat(pm[1]||"all");show("all")}else if(h==="#/studio"){stop();show("studio")}else if(h==="#/vision-pro"){stop();show("spatial")}
   else if(views.render.classList.contains("on")||current!=null)eject();else show("bench")}finally{routing=false}}
 addEventListener("popstate",applyRoute);
 applyRoute();
